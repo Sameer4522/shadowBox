@@ -15,3 +15,12 @@ function generateShadow() {
   ).value;
   let shadowInset = document.getElementById("shadow-inset").checked;
 }
+
+//convert hex value to rgba
+let hexToRGBA = (shadowColor, shadowColorOpacity) => {
+  let r = parseInt(shadowColor.substr(1, 2), 16);
+  let g = parseInt(shadowColor.substr(3, 2), 16);
+  let b = parseInt(shadowColor.substr(5, 2), 16);
+
+  return `rgba(${r},${g},${b},${shadowColorOpacity})`;
+};
