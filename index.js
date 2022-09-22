@@ -29,6 +29,7 @@ function generateShadow() {
       )}`;
 
   element.style.boxShadow = boxShadow;
+  code.textContent = `box-shadow: ${boxShadow}`;
 }
 
 //convert hex value to rgba
@@ -39,3 +40,14 @@ let hexToRGBA = (shadowColor, shadowColorOpacity) => {
 
   return `rgba(${r},${g},${b},${shadowColorOpacity})`;
 };
+
+// Copy code from input
+let copyCode = () => {
+  code.select();
+  code.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(code.value);
+  alert("Code copied to Clipboard");
+};
+
+// Call generateShadow function on every page load
+window.onload = generateShadow();
